@@ -8,7 +8,7 @@ function paginaInicial(tag, texto) {
 
 // Define os textos iniciais
 paginaInicial('h1', 'Calculadora');
-paginaInicial('p', 'Escolha um dos botões:');
+paginaInicial('p', 'Aqui você pode achar o fatorial de algum número ou achar seu IMC:');
 
 // Função para calcular o fatorial
 function fazerFatorial() {
