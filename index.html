@@ -12,7 +12,19 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .texto__paragrafo {
-            font-size: 20px; /* Ajuste o valor conforme necessário */
+            font-size: 20px;            
+        }
+
+        /* Alinhando os inputs lado a lado */
+        .inputs-container {
+            display: flex;
+            gap: 10px; /* Espaçamento entre os inputs */
+        }
+
+        .container__input {
+            padding: 8px;
+            font-size: 18px;
+            width: 150px; /* Ajuste o tamanho dos inputs */
         }
     </style>
     <title>Calculadora</title>
@@ -24,30 +36,27 @@
         <div class="container__conteudo">
             <div class="container__informacoes">
                 <div class="container__texto">
-                    <h1></h1>
-                    <div class="container__texto">
-                        <h1></h1>
-                        <p1 class="texto__paragrafo"></p1>
-                        <br>
-                        <p2 class="texto__paragrafo"></p2>
-                        <br>
-                        <p3 class="texto__paragrafo"></p3>
-                    </div>
+                    <h1>Calculadora</h1>
+                    <p class="texto__paragrafo">Escolha um número para calcular o fatorial ou o IMC.</p>                        
                 </div>
-                <input type="number" min="1" max="10" class="container__input">
+                <input type="number" min="1" max="10" id="inputFatorial" class="container__input" placeholder="Fatorial">
+            <br>
+            <br>
+                <!-- Contêiner para alinhar os inputs lado a lado -->
+                <div class="inputs-container">
+                    
+                    <input type="number" min="1" max="10" id="inputAltura" class="container__input" placeholder="altura">
+                    <input type="number" min="1" max="10" id="inputPeso" class="container__input" placeholder="peso">
+                </div>
+
                 <div class="chute container__botoes">
                     <button onclick="fazerFatorial()" class="container__botao">Fatorial</button>
-                    <button onclick="AcharImc()" class="container__botao">IMC</button>
-                    <button onclick="pro3()" class="container__botao">pro3</button>
-                    
+                    <button onclick="fazerImc()" class="container__botao">IMC</button>                                  
                 </div>
             </div>
-            <img src="./img/Cerebro.png" alt="Um cerebro com a mão para cima" class="container__imagem-cerebro" />
+            <img src="./img/Cerebro.png" alt="Um cérebro com a mão para cima" class="container__imagem-cerebro" />
         </div>
     </div>
-
-
-
 
     <script src="app.js" defer></script>
 </body>

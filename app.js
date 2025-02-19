@@ -1,46 +1,48 @@
-// Pagina Inicial
-
-function paginaInicial(tag, texto){
+// Função para atualizar a página
+function paginaInicial(tag, texto) {
     let campo = document.querySelector(tag);
-    campo.innerHTML = texto;
+    if (campo) {
+        campo.innerHTML = texto;
     }
-    
+}
+
+// Define os textos iniciais
 paginaInicial('h1', 'Calculadora');
-paginaInicial('p1', 'Escolha um dos botões:');
-paginaInicial('p2', 'Para fatorial digite um numero positivo');
-paginaInicial('p3', 'Para achar o IMC digite altura e peso ex (1,71. 60)')
+paginaInicial('p', 'Escolha um dos botões:');
 
+// Função para calcular o fatorial
+function fazerFatorial() {
+    let variante = parseInt(document.getElementById('inputFatorial').value);
 
-// Botão fatorial
-function fazerFatorial () {
-    let variante = document.querySelector ('input').value;
-    if (variante < 0) {
-        //console.log ('O numero precisa ser possitivo');
-        paginaInicial('p3', 'O numero precisa ser possitivo');
-        paginaInicial('p2', '');
-} else { 
-    if(variante == 0){
-        paginaInicial('p3', 'O fatorial de 0 é 1');
-        paginaInicial('p2', '');
-}
-else  {
-    let resultadoFatorial = fatorial(variante);    
-    paginaInicial('p3', `O Fatorial de ${variante} é ${resultadoFatorial}`);
-    paginaInicial('p2', '');
+    if (isNaN(variante) || variante < 0) {        
+        paginaInicial('p', 'O número precisa ser positivo');        
+    } else if (variante === 0) {
+        paginaInicial('p', 'O fatorial de 0 é 1');
+    } else {
+        let resultadoFatorial = fatorial(variante);
+        paginaInicial('p', `O fatorial de ${variante} é ${resultadoFatorial}`);
+    }
 }
 
-      }
-}
-
- function fatorial(numero1) {
+// Função que calcula o fatorial de um número
+function fatorial(numero1) {
     let resultado = 1;
-for (let variante1 = 2; variante1 <= numero1; variante1++) {
-   resultado *= variante1;
-}
-return resultado;
+    for (let i = 2; i <= numero1; i++) {
+        resultado *= i;
+    }
+    return resultado;
 }
 
-// Botão IMC
-function AcharImc () {
-    console.log ('oi')
+// Função para calcular o IMC
+function fazerImc() {  
+    let variantAltura = parseFloat(document.getElementById('inputAltura').value);
+    let variantePeso = parseFloat(document.getElementById('inputPeso').value);
+
+    if (isNaN(variantAltura) || isNaN(variantePeso) || variantAltura <= 0 || variantePeso <= 0) {
+        paginaInicial('p', 'Por favor, insira valores válidos para altura e peso.');
+        return;
+    }
+
+    let resultadoIMC = variantePeso / (variantAltura ** 2);
+    paginaInicial('p', `O seu IMC é ${resultadoIMC.toFixed(2)}`);
 }
